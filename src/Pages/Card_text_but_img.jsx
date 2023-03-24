@@ -4,7 +4,7 @@ import './Aboutusmenu.css';
 import img1 from "../home_pop/header-1.jpg" ;
 import img2 from "../home_pop/header-2-1.jpg" ;
 import img3 from "../home_pop/header-3-1.jpg" ;
-
+import { Link } from "react-router-dom";
 export default function Card_text_but_img(props) {
 
   var element = document.getElementById("anixoa");
@@ -63,9 +63,21 @@ export default function Card_text_but_img(props) {
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae ultricies felis. In tempus id massa sit amet sagittis. Nullam aliquet fermentum velit, a blandit
           </p>
-          <button type="button" style={{ color: "white" }} className="btn btn-dark mt-4">
+
+          <Link to ="/">
+            <button
+              type="button"
+              style={{ color: "white" }}
+              className="btn btn-dark mt-4"
+            >
+              Read More
+            </button>
+            </Link>
+          {/* <button type="button" style={{ color: "white" }} className="btn btn-dark mt-4">
             Read More
-          </button>
+          </button> */}
+
+
         </div>
         {/* chữ end */}
 

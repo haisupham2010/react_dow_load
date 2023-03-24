@@ -1,33 +1,52 @@
+// Product Image
 import productImg1 from "../../productimg/wc-26-300x300.png";
 import productImg2 from "../../productimg/wc-11-300x300.png";
 import productImg3 from "../../productimg/wc-12-300x300.png";
 import productImg4 from "../../productimg/wc-18-300x300.png";
 import productImg5 from "../../productimg/wc-15-300x300.png";
 import productImg6 from "../../productimg/wc-img-1-300x300.png";
+import productImg7 from "../../productimg/Classic Oak Chair/wc-16-300x300.png"
+import productImg8 from "../../productimg/Retro Oak Stool/wc-27-300x300.png"
+// Product Details Image
 import vaseImg from "../../productimg/Small Vase/wc-26.png";
 import vaseImg1 from "../../productimg/Small Vase/wc-3-1-100x100.png";
 import vaseImg2 from "../../productimg/Small Vase/wc-5-100x100.png";
 import vaseImg3 from "../../productimg/Small Vase/wc-7-100x100.png";
+
 import crateImg from "../../productimg/Wooden Wall Crates/wc-img-1-100x100.png"
 import crateImg1 from "../../productimg/Wooden Wall Crates/wc-2-100x100.png"
 import crateImg2 from "../../productimg/Wooden Wall Crates/wc-gallery-100x100.png"
 import crateImg3 from "../../productimg/Wooden Wall Crates/blog-img-1-100x100.png"
+
 import frameImg from "../../productimg/Simple Frame/wc-18-100x100.png"
 import frameImg1 from "../../productimg/Simple Frame/wc-10-100x100.png"
 import frameImg2 from "../../productimg/Simple Frame/wc-4-100x100.png"
 import frameImg3 from "../../productimg/Simple Frame/wc-2-100x100.png"
+
 import plantImg from "../../productimg/Plant Pots Set/wc-15-100x100.png"
 import plantImg1 from "../../productimg/Plant Pots Set/wc-7-100x100.png"
 import plantImg2 from "../../productimg/Plant Pots Set/wc-5-100x100.png"
 import plantImg3 from "../../productimg/Plant Pots Set/wc-3-1-100x100.png"
+
 import globeImg from "../../productimg/Mounted World Globe/wc-11-100x100.png"
 import globeImg1 from "../../productimg/Mounted World Globe/wc-10-100x100.png"
 import globeImg2 from "../../productimg/Mounted World Globe/wc-gallery-100x100.png"
 import globeImg3 from "../../productimg/Mounted World Globe/wc-6-100x100.png"
+
 import chairImg from "../../productimg/Modern Wooden Chair/wc-12-100x100.png"
 import chairImg1 from "../../productimg/Modern Wooden Chair/wc-14-100x100.png"
 import chairImg2 from "../../productimg/Modern Wooden Chair/wc-5-100x100.png"
 import chairImg3 from "../../productimg/Modern Wooden Chair/wc-4-100x100.png"
+
+import oakchairImg from "../../productimg/Classic Oak Chair/wc-16-100x100.png"
+import oakchairImg1 from "../../productimg/Classic Oak Chair/wc-14-100x100.png"
+import oakchairImg2 from "../../productimg/Classic Oak Chair/wc-4-100x100.png"
+import oakchairImg3 from "../../productimg/Classic Oak Chair/wc-5-100x100.png"
+
+import oakstoolImg from "../../productimg/Retro Oak Stool/wc-27-100x100.png"
+import oakstoolImg1 from "../../productimg/Retro Oak Stool/wc-28-100x100.png"
+import oakstoolImg2 from "../../productimg/Retro Oak Stool/wc-2-100x100.png"
+import oakstoolImg3 from "../../productimg/Retro Oak Stool/wc-3-100x100.png"
 export const products = [
   {
     id: 1,
@@ -37,6 +56,7 @@ export const products = [
     img: productImg1,
     rating: 5,
     category: "Decoration",
+    popular: "yes",
     subImg: vaseImg,
     subImg1: vaseImg1,
     subImg2: vaseImg2,
@@ -50,6 +70,7 @@ export const products = [
     originPrice: 109.00,
     img: productImg6,
     rating: 4,
+    popular: "yes",
     category: "Decoration",
     subImg: crateImg,
     subImg1: crateImg1,
@@ -63,8 +84,9 @@ export const products = [
     price: 19.00,
     originPrice: 29.00,
     img: productImg4,
+    popular: "yes",
     rating: 5,
-    category: "Frame & Posters",
+    category: "Frame&Posters",
     subImg: frameImg,
     subImg1: frameImg1,
     subImg2: frameImg2,
@@ -76,6 +98,7 @@ export const products = [
     name: "Modern Wooden Chair",
     price: 199.00,
     originPrice: 229.00,
+    popular: "yes",
     img: productImg3,
     rating: 5,
     category: "Furniture",
@@ -111,6 +134,36 @@ export const products = [
     subImg1: plantImg1,
     subImg2: plantImg2,
     subImg3: plantImg3,
+    SKU: 792,
+  },
+  {
+    id: 7,
+    name: "Classic Oak Chair",
+    price: 219.00,
+    originPrice: 259.00,
+    popular: "yes",
+    img: productImg7,
+    rating: 5, 
+    category: "Furniture",
+    subImg: oakchairImg,
+    subImg1: oakchairImg1,
+    subImg2: oakchairImg2,
+    subImg3: oakchairImg3,
+    SKU: 792,
+  },
+  {
+    id: 8,
+    name: "Retro Oak Stool",
+    price: 39.00,
+    originPrice: 59.00,
+    popular: "yes",
+    img: productImg8,
+    rating: 5, 
+    category: "Furniture",
+    subImg: oakstoolImg,
+    subImg1: oakstoolImg1,
+    subImg2: oakstoolImg2,
+    subImg3: oakstoolImg3,
     SKU: 792,
   },
 ]

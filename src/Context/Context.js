@@ -1,9 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
 import { products } from "../Pages/AllProducts/data";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 export const Context = createContext(null);
 export const ContextProvider = (props) => {
   const [cartItem, setCartItem] = useState([]);
+  //Local storage items in cart
   useEffect(() => {
     const cartFromLocalStorage = localStorage.getItem("cart");
     if (cartFromLocalStorage !== null)
@@ -14,6 +15,178 @@ export const ContextProvider = (props) => {
     localStorage.setItem("cart", JSON.stringify(cartItem));
   }, [cartItem]);
 
+  //Sorting
+  const [displayPage, setDisplayPage] = useState([...products]);
+  const onChangeSort = (e) => {
+    const value = e.target.value;
+    switch (value) {
+      case "default":
+        setDisplayPage([...products]);
+        break;
+      case "high-price":
+        setDisplayPage([...displayPage.sort((a, b) => b.price - a.price)]);
+        break;
+      case "low-price":
+        setDisplayPage([...displayPage.sort((a, b) => a.price - b.price)]);
+        break;
+      case "rating":
+        setDisplayPage([...displayPage.sort((a, b) => b.rating - a.rating)]);
+        break;
+      case "ASC":
+        setDisplayPage([
+          ...displayPage.sort((a, b) => a.name.localeCompare(b.name)),
+        ]);
+        break;
+      case "DSC":
+        setDisplayPage([
+          ...displayPage.sort((a, b) => b.name.localeCompare(a.name)),
+        ]);
+        break;
+    }
+    console.log(value, displayPage);
+  };
+
+  //Items in Category
+  const ItemDeco = products.filter((item) => {
+    return item.category === "Decoration";
+  });
+  console.log(ItemDeco);
+  const ItemFrame = products.filter((item) => {
+    return item.category === "Frame&Posters";
+  });
+  const ItemFuniture = products.filter((item) => {
+    return item.category === "Furniture";
+  });
+  const ItemPopular = products.filter((item) => {
+    return item.popular === "yes";
+  });
+
+  //Sorting with Categories (NEW):
+
+  //1. Sorting Decoration category
+  const [displayPageDeco, setDisplayPageDeco] = useState([...ItemDeco]);
+  const onChangeSortDeco = (e) => {
+    const value = e.target.value;
+    switch (value) {
+      case "default":
+        setDisplayPageDeco([...ItemDeco]);
+        break;
+      case "high-price":
+        setDisplayPageDeco([
+          ...displayPageDeco.sort((a, b) => b.price - a.price),
+        ]);
+        break;
+      case "low-price":
+        setDisplayPageDeco([
+          ...displayPageDeco.sort((a, b) => a.price - b.price),
+        ]);
+        break;
+      case "rating":
+        setDisplayPageDeco([
+          ...displayPageDeco.sort((a, b) => b.rating - a.rating),
+        ]);
+        break;
+      case "ASC":
+        setDisplayPageDeco([
+          ...displayPageDeco.sort((a, b) => a.name.localeCompare(b.name)),
+        ]);
+        break;
+      case "DSC":
+        setDisplayPageDeco([
+          ...displayPageDeco.sort((a, b) => b.name.localeCompare(a.name)),
+        ]);
+        break;
+    }
+  };
+
+  //2. Sorting Frame category
+  const [displayPageFrame, setDisplayPageFrame] = useState([...ItemFrame]);
+  const onChangeSortFrame = (e) => {
+    const value = e.target.value;
+    switch (value) {
+      case "default":
+        setDisplayPageFrame([...ItemFrame]);
+        break;
+      case "high-price":
+        setDisplayPageFrame([
+          ...displayPageFrame.sort((a, b) => b.price - a.price),
+        ]);
+        break;
+      case "low-price":
+        setDisplayPageFrame([
+          ...displayPageFrame.sort((a, b) => a.price - b.price),
+        ]);
+        break;
+      case "rating":
+        setDisplayPageFrame([
+          ...displayPageFrame.sort((a, b) => b.rating - a.rating),
+        ]);
+        break;
+      case "ASC":
+        setDisplayPageFrame([
+          ...displayPageFrame.sort((a, b) => a.name.localeCompare(b.name)),
+        ]);
+        break;
+      case "DSC":
+        setDisplayPageFrame([
+          ...displayPageFrame.sort((a, b) => b.name.localeCompare(a.name)),
+        ]);
+        break;
+    }
+  };
+
+  //3. Sorting Furniture category
+  const [displayPageFurniture, setDisplayPageFurniture] = useState([
+    ...ItemFuniture,
+  ]);
+  const onChangeSortFurniture = (e) => {
+    const value = e.target.value;
+    switch (value) {
+      case "default":
+        setDisplayPageFurniture([...ItemFuniture]);
+        break;
+      case "high-price":
+        setDisplayPageFurniture([
+          ...displayPageFurniture.sort((a, b) => b.price - a.price),
+        ]);
+        break;
+      case "low-price":
+        setDisplayPageFurniture([
+          ...displayPageFurniture.sort((a, b) => a.price - b.price),
+        ]);
+        break;
+      case "rating":
+        setDisplayPageFurniture([
+          ...displayPageFurniture.sort((a, b) => b.rating - a.rating),
+        ]);
+        break;
+      case "ASC":
+        setDisplayPageFurniture([
+          ...displayPageFurniture.sort((a, b) => a.name.localeCompare(b.name)),
+        ]);
+        break;
+      case "DSC":
+        setDisplayPageFurniture([
+          ...displayPageFurniture.sort((a, b) => b.name.localeCompare(a.name)),
+        ]);
+        break;
+    }
+  };
+
+  //Filter Categories (NEW)
+  const onFilterCategories = (categoryItem) => {
+    const result = products.filter((curData) => {
+      return curData.category === categoryItem;
+    });
+
+    setDisplayPage(result);
+    if (categoryItem === "All") {
+      setDisplayPage([...products]);
+      console.log(products.length);
+    }
+  };
+
+  // Change Product Amount in cart
   const handleIncrease = (productId) => {
     setCartItem(
       cartItem.map((item) =>
@@ -32,10 +205,12 @@ export const ContextProvider = (props) => {
       )
     );
   };
+
+  //Star rating
   const Star = ({ marked, starId }) => {
     return (
       <span data-star-id={starId} className="star" role="button">
-        {marked ? "\u2605" : "\u2606"}
+        {marked ? <FaStar /> : <FaRegStar />}
       </span>
     );
   };
@@ -68,6 +243,7 @@ export const ContextProvider = (props) => {
     );
   };
 
+//Add to cart
   const addToCart = (productId) => {
     alert("Your item is added to cart");
     const index = cartItem.findIndex((item) => item.product.id === productId);
@@ -88,7 +264,7 @@ export const ContextProvider = (props) => {
       });
     }
   };
-
+//Remove from cart
   const removeFromCart = (productId) => {
     setCartItem((prev) => {
       const itemIndex = prev.findIndex((item) => item.product.id === productId);
@@ -98,6 +274,8 @@ export const ContextProvider = (props) => {
       return [...prev];
     });
   };
+
+ //Change Amount 
   const handleChangeAmount = (event) => {
     event.preventDefault();
     console.log(event.target.value);
@@ -114,14 +292,25 @@ export const ContextProvider = (props) => {
   const shippingFee = 30;
   const cartTotal = Number(cartSubTotal) + Number(shippingFee);
 
-  const [showTab, setShowTab] = useState(1);
+  const [showTab, setShowTab] = useState(3);
   const handleChangeTab = (e) => {
     setShowTab(e);
   };
 
   const onSubmitOrder = () => {
-    alert("Your order is placed")
+    alert("Your order is placed");
+  };
+
+  //Scroll to Item
+  const handleClickScroll = () => {
+    const userReview = document.getElementById('user-review');
+    if (userReview) {
+      // 👇 Will scroll smoothly to the top of the next section
+      userReview.scrollIntoView({ behavior: 'smooth' });
+    }
   }
+
+
   const contextValue = {
     cartItem,
     addToCart,
@@ -130,14 +319,41 @@ export const ContextProvider = (props) => {
     cartSubTotal,
     cartTotal,
     shippingFee,
+
     handleIncrease,
     handleDecrease,
-    FaStar,
+    
     handleChangeTab,
     showTab,
+    
+    FaStar,
     StarRating,
+
     handleChangeAmount,
-    onSubmitOrder
+    onSubmitOrder,
+
+    displayPage,
+    setDisplayPage,
+    onChangeSort,
+    ItemPopular,
+
+    onFilterCategories,
+    ItemDeco,
+    displayPageDeco,
+    setDisplayPageDeco,
+    onChangeSortDeco,
+
+    ItemFrame,
+    displayPageFrame,
+    setDisplayPageFrame,
+    onChangeSortFrame,
+
+    ItemFuniture,
+    displayPageFurniture,
+    setDisplayPageFurniture,
+    onChangeSortFurniture,
+
+    handleClickScroll
   };
 
   return (

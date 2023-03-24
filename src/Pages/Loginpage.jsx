@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { IsloginContext } from "./IsloginContext";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const initCredential = { email: "", password: "", confirm_password: "" };
 // import { useContext } from "react";
@@ -110,67 +110,97 @@ export default function Loginpage() {
 
 
   return (
-    <div className="container d-flex align-items-center justify-content-center mt-5 mb-5" >
+    <div className="d-flex align-items-center justify-content-center bg-dark-subtle" >
+      {/* style={{ height: "600px" }} */}
+      {/* thay đổi 1 */}
+      <div className="container d-flex align-items-center justify-content-center mt-5 bg-white" style={{ height: "500px" }} >
 
-      <div className="row" style={{ width: "400px" }}>
-        <div className="">
-
-     
-          <form onSubmit={handleFormSubmit} >
-
-            <h1 className="h3 mb-3 fw-normal">Please Login</h1>
-
-            {isemailexists && (<h1 className="" style={{ color: "red" }}>Email does not exist</h1>)}
-
-            <div className="form-floating">
-              <input
-                required
-                type="email"
-                className="form-control"
-                id="floatingInput"
-                placeholder="name@example.com"
-                value={credential.email}
-                name="email"
-                onChange={handleInputChange}
-              />
-              <label htmlFor="floatingInput">Email address</label>
-            </div>
+        {/*  bg-primary */}
+        <div className="row" style={{ width: "1300px", height: "450px" }}>
+          <div className="">
 
 
+            <form onSubmit={handleFormSubmit} >
 
-            <div className="form-floating mt-4">
+              <h1 className="h3 mb-3" style={{ fontWeight: "bold" }}>My account</h1>
+              <h3 className="h3 mb-3 fw-semibold">Login</h3>
+
+              {isemailexists && (<h1 className="" style={{ color: "red" }}>Email does not exist</h1>)}
+
+              <div style={{ color: "red" }}>Email address *</div>
+
+              <div className="form-floating">
+                <input
+                  required
+                  type="email"
+                  className="form-control"
+                  id="floatingInput"
+                  // placeholder="name@example.com"
+                  value={credential.email}
+                  name="email"
+                  onChange={handleInputChange}
+                />
+                {/* <label htmlFor="floatingInput">Email address</label> */}
+              </div>
 
 
-              <input
-                required
-                type="password"
-                className="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-                value={credential.password}
-                name="password"
-                onChange={handleInputChange}
-              />
 
-              <label htmlFor="floatingPassword">Password</label>
-            </div>
+              <div className="form-floating mt-4">
+
+                <div style={{ color: "red" }}>Password *</div>
+                <input
+                  required
+                  type="password"
+                  className="form-control"
+                  id="floatingPassword"
+                  // placeholder="Password"
+                  value={credential.password}
+                  name="password"
+                  onChange={handleInputChange}
+                />
+
+                {/* <label htmlFor="floatingPassword">Password</label> */}
+              </div>
 
 
-            {islogin && (<div style={{ textAlign: "center", fontSize: "40px", color: "blue" }}>
-              Successful login
-            </div>)}
+              {islogin && (<div style={{ textAlign: "center", fontSize: "40px", color: "blue" }}>
+                Successful login
+              </div>)}
 
-            {ispass_true && (<div style={{ color: "red" }}>
-              Incorrect password
-            </div>)}
+              {ispass_true && (<div style={{ color: "red" }}>
+                Incorrect password
+              </div>)}
 
-            <button className="mt-4 w-100 btn btn-lg btn-primary" type="submit">
-              Login
-            </button>
-          </form>
+              <div className="d-flex mt-4" style={{ alignItems: "center", gap: "10px" }}>
+                <div>
+                  <button className="w-21 btn btn-lg bg-dark" style={{ color: "white" }} type="submit">
+                    Login
+                  </button>
+                </div>
+
+                <div>
+                  <input
+                  
+                    type="checkbox"
+                  />
+                  <spm>Remember me</spm>
+                </div>
+              </div>
+
+
+              <div className="mt-3">
+
+                <Link>
+                  Lost your password?
+                </Link>
+
+              </div>
+
+
+            </form>
+          </div>
         </div>
       </div>
-
     </div>
   );
 }

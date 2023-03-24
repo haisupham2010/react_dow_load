@@ -1,0 +1,157 @@
+.font_tex_cart{
+ font-size: 20px;
+}
+
+@media only screen and (max-width: 739px) {
+    .font_tex_cart{
+        font-size: 20px;
+       }
+
+}
+
+
+.hw_div_res{
+ width: 4.7%;
+
+
+}
+
+.css_text{
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  
+  }
+
+@media only screen and (min-width: 772px) {
+    .cartol{
+        width: 100%;
+       
+       }
+
+}
+
+.res_congtru{
+ width: 40px;
+ height: 40px;
+
+}
+.res_so{
+padding: 40px;
+
+}
+
+@media only screen and (max-width: 1024px) {
+    .res_congtru{
+        width: 40px;
+        height: 40px;
+       
+       }
+       .res_so{
+       padding: 20px;
+       
+       }
+}
+
+@media only screen and (max-width: 777px) {
+    .res_congtru{
+        width: 30px;
+        height: 30px;
+       
+       }
+       .res_so{
+       padding: 10px;
+       
+       }
+}
+
+@media only screen and (max-width: 579px) {
+    .res_congtru{
+        width: 20px;
+        height: 20px;
+       
+       }
+       .res_so{
+       padding: 6px;
+       
+       }
+}
+
+
+@media only screen and (max-width: 579px) {
+    .res_congtru{
+        width: 10px;
+        height: 20px;
+       
+       }
+       .res_so{
+       padding: 6px;
+       
+       }
+}
+.res_text_t{
+font-size: 20px;
+
+
+}
+@media only screen and (max-width: 742px) {
+    .res_text_t{
+        font-size: 15px;
+        
+        
+        }
+}
+@media only screen and (max-width: 577px) {
+    .res_text_t{
+        font-size: 10px;
+        
+        
+        }
+}
+.subtotal_css{
+    font-size: 20px;
+
+
+
+}
+@media only screen and (max-width: 769px) {
+    .subtotal_css{
+        font-size: 15px;
+    
+    
+    
+    }
+}
+@media only screen and (max-width: 554px) {
+    .subtotal_css{
+        font-size: 10px;
+    
+    
+    
+    }
+}
+.font_continue{
+
+    font-size: 15px;
+
+}
+.css_ten{
+ font-size: 20px;
+
+
+}
+@media only screen and (max-width: 720px) {
+    .css_ten{
+        font-size: 15px;
+       
+       
+       }
+}
+@media only screen and (max-width: 478px) {
+    .css_ten{
+        font-size: 10px;
+       
+       
+       }
+}

@@ -49,59 +49,15 @@
 
 
 
-@media only screen and (min-width: 983px) and (max-width: 1175px) {
-    .cartext_text{
-        height: 800px;
-      
-      
-      }
-      
-  }
 
 
 
-  @media only screen and (min-width: 768px) and (max-width: 983px) {
-    .cartext_text{
-        height: 1300px;
-      
-      
-      }
-      
-  }
 
 
-  @media only screen  and (min-width: 539px) and (max-width: 768px) {
-    .cartext_text{
-        height: 1700px;
-      
-      
-      }
-      
-  }
-
-  @media only screen and (max-width: 539px) {
-    .cartext_text{
-        height: 1900px;
-      
-      
-      }
-      
-  }
 
 
-  .cartext_img_but{
-    height: 600px;
-  
-  
-  }
 
-  @media only screen and (max-width: 941px) {
-    .cartext_img_but{
-        height: 1200px;
-      
-      
-      }
-  }
+
 
 
   

@@ -11,7 +11,7 @@ import productImg7 from "../../productimg/wc-19-300x300.png";
 import allProduct from "../AllProducts/all-category.jpg";
 import { color, style } from "@mui/system";
 import { yellow } from "@mui/material/colors";
-function AllProducts() {
+function FramePosterCategory() {
   //Scroll to top each Page
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -20,64 +20,43 @@ function AllProducts() {
     addToCart,
     FaStar,
     StarRating,
-    onChangeSort,
-    displayPage,
-    onFilterCategories,
-    ItemDeco,
     ItemFrame,
+    displayPageFrame,
+    onChangeSortFrame,
+    ItemDeco,
     ItemFuniture,
   } = useContext(Context);
 
-  // Call API Sorting from Context (NEW)
-  // //Sorting
-  // const [displayPage, setDisplayPage] = useState([...products]);
-  // const onChangeSort = (e) => {
-  //   const value = e.target.value;
-  //   switch (value) {
-  //     case "default":
-  //       setDisplayPage([...products]);
-  //       break;
-  //     case "high-price":
-  //       setDisplayPage([...displayPage.sort((a, b) => b.price - a.price)]);
-  //       break;
-  //     case "low-price":
-  //       setDisplayPage([...displayPage.sort((a, b) => a.price - b.price)]);
-  //       break;
-  //     case "rating":
-  //       setDisplayPage([...displayPage.sort((a, b) => b.rating - a.rating)]);
-  //       break;
-  //     case "ASC":
-  //       setDisplayPage([
-  //         ...displayPage.sort((a, b) => a.name.localeCompare(b.name)),
-  //       ]);
-  //       break;
-  //     case "DSC":
-  //       setDisplayPage([
-  //         ...displayPage.sort((a, b) => b.name.localeCompare(a.name)),
-  //       ]);
-  //       break;
-  //   }
-  //   console.log(value, displayPage);
-  // };
   return (
     <div className="bg-body-tertiary">
+
       <div className="d-flex container pb-3 css_res_contain">
 
         <div className="mt-5 pe-5 pb-5 css_res_contain_allpro">
 
+
           <div className="d-flex">
             <div>
+              {/* Link to <HomePage/> */}
               <Link to="/" className="nav-link active fs-5">
                 Home&nbsp;/&nbsp;
               </Link>
             </div>
-            <div className="fw-semibold fs-5"> All Products</div>
+
+            {/* Link to <AllProducts/> */}
+            <Link to="/all-products" className="nav-link active fs-5">
+              All Products&nbsp;/&nbsp;
+            </Link>
+
+            <div className="fw-semibold fs-5"> Frames & Posters </div>
           </div>
-          <h1 className="mt-3">All Products</h1>
+          <h1 className="mt-3">Frames & Posters</h1>
           <div className="d-flex justify-content-end">
             <form className="woocommerce-ordering" method="get">
+
+              {/* Sorting Frame Category */}
               <select
-                onChange={(value) => onChangeSort(value)}
+                onChange={(value) => onChangeSortFrame(value)}
                 name="orderby"
                 className="form-select"
                 aria-label="Shop order"
@@ -96,7 +75,8 @@ function AllProducts() {
 
           <div>
             <div className="row">
-              {displayPage.map((product) => (
+              {/* Display Items in Frame&Poster Category */}
+              {displayPageFrame.map((product) => (
                 <div className="col-4 g-2" key={product.id}>
                   <Link to={`/products/${product.id}`}>
                     {" "}
@@ -104,17 +84,17 @@ function AllProducts() {
                   </Link>
 
 
-                  <Link to={`/products/${product.id}`} className="fw-bold" style={{color: "black" }}
-                  >
-                    <div className="nav-linkfw-semibold mt-3 mb-1 res_css_tex" >
-                 
-                      {product.name}
+                  <div className="nav-linkfw-semibold mt-3 mb-1 res_css_tex" >
+                    <Link to={`/products/${product.id}`} className="fw-bold" style={{color: "black" }}
+                    >
+                      {`${product.name}`}
+                    </Link>
+                  </div>
 
-                    </div>
-                  </Link>
+
 
                   <StarRating value={product.rating} />
-                  <div className="d-flex mt-3 css_product_price">
+                  <div className="d-flex mt-3">
                     <div className="text-decoration-line-through me-2 text-body-tertiary">
                       ${product.originPrice}.00
                     </div>{" "}
@@ -134,6 +114,7 @@ function AllProducts() {
         </div>
         <aside className="css_res_contain_allphai h-50 p-4 mt-5 bg-body">
           <h4> Categories</h4>
+
           {/* Link to <AllProducts /> */}
           <Link to="/all-products" className="nav-link">
             <div
@@ -141,13 +122,13 @@ function AllProducts() {
               className="d-flex align-items-center mt-4 border-bottom pb-3"
             >
               <img className="w-25" src={allProduct}></img>
-              {/* Hover category semibold in aside */}
-              <p style={{ fontSize: 17 }} className="fw-semibold ms-3 mt-2">
+              <p style={{ fontSize: 17 }} className="ms-3 mt-2">
                 {" "}
                 ALL ({products.length}){" "}
               </p>
             </div>
           </Link>
+
           {/* Link to <DecorationCategory /> */}
           <Link to="/all-products/decoration" className="nav-link">
             <div
@@ -170,8 +151,8 @@ function AllProducts() {
             >
               <img className="w-25" src={productImg4}></img>
 
-
-              <p style={{ fontSize: 17 }} className="ms-3 mt-2">
+              {/* Hover category semibold in aside */}
+              <p style={{ fontSize: 17 }} className="ms-3 mt-2 fw-semibold">
                 {" "}
                 Frames & Posters ({ItemFrame.length}){" "}
               </p>
@@ -193,7 +174,7 @@ function AllProducts() {
           </Link>
 
           <h4 className="form-label mt-4">Most Popular Products</h4>
-
+          {/* Link to <ProductDetails /> Item ID = 3 */}
           <Link className="nav-link" to="/products/3">
             <div className="d-flex align-items-center flex-column mt-4 border-bottom">
               <img className="w-50" src={productImg3}></img>
@@ -212,6 +193,7 @@ function AllProducts() {
             </div>
           </Link>
 
+          {/* Link to <ProductDetails /> Item ID = 4 */}
           <Link className="nav-link" to="/products/4">
             <div className="d-flex align-items-center flex-column mt-4 pb-3">
               <img className="w-50" src={productImg4}></img>
@@ -229,9 +211,10 @@ function AllProducts() {
             </div>
           </Link>
         </aside>
+
       </div>
     </div>
   );
 }
 
-export default AllProducts;
+export default FramePosterCategory;
